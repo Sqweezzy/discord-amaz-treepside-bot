@@ -158,15 +158,12 @@ async def check_external_source():
         else:
             await MAIN_CHANNEL.send(embed=embed)
     
-    if FIRST_RUN:
-        FIRST_RUN = False
-    
     
 @check_external_source.error
 async def check_external_source_error(error):
     CHANNEL_INFO = bot.get_channel(1530229217034375218)
     if CHANNEL_INFO:
-        await CHANNEL_INFO.send('tasks.loop упал: {error}')
+        await CHANNEL_INFO.send(f'tasks.loop упал: {error}')
     print(f"[FATAL] tasks.loop упал: {error}")
     if not check_external_source.is_running():
         if CHANNEL_INFO:

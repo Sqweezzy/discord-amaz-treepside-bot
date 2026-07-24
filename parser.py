@@ -151,7 +151,7 @@ def handle_new_post(post) -> dict:
 
     return posts_array
 
-def fetch_new_vk_post():
+def fetch_new_vk_post(count=3):
     last_id = database.get_last_id()
     if last_id is not None:
         last_id = int(last_id)
@@ -162,7 +162,7 @@ def fetch_new_vk_post():
     post_to_discord = []
 
     try:
-        new_posts = get_wall_posts(count=3)
+        new_posts = get_wall_posts(count=count)
     except VKAuthErrorCust:
         raise
     except Exception as e:
