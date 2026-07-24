@@ -1,4 +1,7 @@
 venv
 .venv
-dbbase.db
+dbase.db
 .env
+__pycache__
+.db
+dbase.db
